@@ -123,6 +123,9 @@ async def send_telegram_message(message):
         'Content-Type': 'application/json'
     }
     try:
+        # 激活argox
+        requests.get('https://nbzx.serv00.net/info')
+        # 通知telegram
         response = requests.post(url, json=payload, headers=headers)
         if response.status_code != 200:
             print(f"发送消息到Telegram失败: {response.text}")
